@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js"></script>
+    <script src="./js/Bmob-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script>
+        Bmob.initialize("d9db8dabd740276d", "192020");
+        Bmob.debug(true);
+
+        function register() {
+            let params = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+            }
+            Bmob.User.register(params).then(res => {
+                location.href="login.html";
+            }).catch(err => {
+                alert(err.error);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="register">
+        <input type="text" name="username" id="username"><br>
+        <input type="password" name="password" id="password"><br>
+        <input id="submit" type="submit" onclick="register()" value="注册">
+    </div>
+
+</body>
+
+</html>
